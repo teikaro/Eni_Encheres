@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.encheres.BusinessException;
 import fr.eni.encheres.bll.UtilisateurManager;
+import fr.eni.encheres.bo.Utilisateur;
 
 /**
  * Servlet implementation class ServletLogin
@@ -42,8 +43,8 @@ public class ServletLogin extends HttpServlet {
 		//System.out.println(mdp);
 		
 		try {
-			UtilisateurManager.getInstance().seConnecter(login, mdp);
-			//request.getSession().setAttribute(login, mdp);
+			Utilisateur user = UtilisateurManager.getInstance().seConnecter(login, mdp);
+			request.getSession().setAttribute("user", user);
 			response.sendRedirect("https://www.google.fr");
 		} catch (BusinessException e) {
 			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
