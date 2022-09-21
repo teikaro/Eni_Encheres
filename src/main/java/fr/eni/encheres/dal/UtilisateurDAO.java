@@ -9,5 +9,7 @@ public interface UtilisateurDAO {
 	Utilisateur getUserByPseudo(String login);
 	
 	Utilisateur getUserById(Integer id);
+	
+	void inserUtilisateur(Utilisateur user);
 
 }
