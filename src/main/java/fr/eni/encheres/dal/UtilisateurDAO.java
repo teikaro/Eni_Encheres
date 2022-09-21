@@ -7,5 +7,7 @@ public interface UtilisateurDAO {
 	Utilisateur getUserByMail(String login);
 
 	Utilisateur getUserByPseudo(String login);
+	
+	Utilisateur getUserById(Integer id);
 
 }
