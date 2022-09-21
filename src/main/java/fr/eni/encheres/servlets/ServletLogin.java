@@ -17,19 +17,21 @@ import fr.eni.encheres.bo.Utilisateur;
 @WebServlet("/login")
 public class ServletLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletLogin() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletLogin() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/Jsp/Connexion.jsp").forward(request, response);
 	}
 
@@ -38,10 +40,10 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String login = request.getParameter("login");
-		//System.out.println(login);
 		String mdp = request.getParameter("mdp");
-		//System.out.println(mdp);
+		//String button = request.getParameter("button");
 		
+		//if(button.equals("connect")) {
 		try {
 			Utilisateur user = UtilisateurManager.getInstance().seConnecter(login, mdp);
 			request.getSession().setAttribute("user", user);
@@ -50,5 +52,8 @@ public class ServletLogin extends HttpServlet {
 			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
 			request.getRequestDispatcher("WEB-INF/Jsp/Connexion.jsp").forward(request, response);
 		}
+		/*} else if(button.equals("create")){
+			request.getRequestDispatcher("WEB-INF/Jsp/inserUpdate.jsp").forward(request, response);
+		}*/
 	}
 }

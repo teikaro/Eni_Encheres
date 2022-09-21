@@ -4,15 +4,13 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Accueil</title>
-</head>
+<jsp:include page="/fragments/head.jsp"></jsp:include>
 
-<body>
+<body class="container">
+<jsp:include page="/fragments/header.jsp"></jsp:include>
 	<main>
 		<div>
-			<h1>Voici la liste des enchères en cours :</h1>
+			<h2>Voici la liste des enchères en cours :</h2>
 		</div>
 	</main>
 </body>
