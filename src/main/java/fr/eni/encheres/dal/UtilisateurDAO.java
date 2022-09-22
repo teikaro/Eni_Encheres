@@ -11,5 +11,7 @@ public interface UtilisateurDAO {
 	Utilisateur getUserById(Integer id);
 	
 	void inserUtilisateur(Utilisateur user);
+	
+	Utilisateur modifierUtilisateur(Utilisateur user);
 
 }
