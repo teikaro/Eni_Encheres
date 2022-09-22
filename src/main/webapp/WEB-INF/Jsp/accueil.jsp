@@ -4,19 +4,17 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Accueil</title>
-</head>
-
 <jsp:include page="/fragments/head.jsp"></jsp:include>
 
 <body class="container">
-
-<jsp:include page="/fragments/header.jsp"></jsp:include>
-
+<c:if test="${!empty sessionScope.user}">
+	<jsp:include page="/fragments/headerConnecte.jsp"></jsp:include>
+</c:if>
+<c:if test="${empty sessionScope.user}">
+	<jsp:include page="/fragments/header.jsp"></jsp:include>
+</c:if>
 	<main>
-		<div>
+				<div>
 			<h1>Liste des enchères :</h1>
 			
 			<label for="site-search">Filtres :</label>
@@ -35,9 +33,7 @@
 		</div>
 		
 		<jsp:include page="article.jsp"/>
-		
 	</main>
-	
 </body>
 
 </html>
