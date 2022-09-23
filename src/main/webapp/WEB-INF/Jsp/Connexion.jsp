@@ -20,10 +20,13 @@
 		</div>
 	</c:if>
 	<form method="post">
-		<label for="login">Login</label> <input type="text" id="login"
-			name="login"> <label for="mdp">Mot de passe</label> <input
-			type="password" id="mdp" name="mdp">
-		<button type="submit">Se connecter</button>
+		<label for="login">Login</label>
+		<input type="text" id="login" name="login"> 
+		<label for="mdp">Mot de passe</label>
+		<input type="password" id="mdp" name="mdp">
+		<button type="submit" name="button" value ="connect">Se connecter</button>
+		<button type="submit" name ="button" value = "create">Créer un compte</button>
 	</form>
+	
 </body>
 </html>
