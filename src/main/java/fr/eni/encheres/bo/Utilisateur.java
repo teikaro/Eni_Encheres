@@ -14,6 +14,9 @@ public class Utilisateur {
 	    private int credit;
 	    private boolean administrateur;
 	    
+	    public Utilisateur () {
+	    	
+	    }
 	    
 		public Utilisateur(Integer no_utilisateur, String pseudo, String nom, String prenom, String email,
 				String telephone, String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur) {
@@ -107,5 +110,13 @@ public class Utilisateur {
 		}
 		public void setAdministrateur(boolean administrateur) {
 			this.administrateur = administrateur;
+		}
+
+		@Override
+		public String toString() {
+			return "Utilisateur [no_utilisateur=" + no_utilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+					+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", code_postal="
+					+ code_postal + ", ville=" + ville + ", mot_de_passe=" + mot_de_passe + ", credit=" + credit
+					+ ", administrateur=" + administrateur + "]";
 		}
 }
