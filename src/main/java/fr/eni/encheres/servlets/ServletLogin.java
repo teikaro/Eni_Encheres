@@ -36,24 +36,27 @@ public class ServletLogin extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String login = request.getParameter("login");
+		// System.out.println(login);
 		String mdp = request.getParameter("mdp");
-		//String button = request.getParameter("button");
-		
-		//if(button.equals("connect")) {
-		try {
-			Utilisateur user = UtilisateurManager.getInstance().seConnecter(login, mdp);
-			request.getSession().setAttribute("user", user);
-			response.sendRedirect("https://www.google.fr");
-		} catch (BusinessException e) {
-			request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
-			request.getRequestDispatcher("WEB-INF/Jsp/Connexion.jsp").forward(request, response);
+		// System.out.println(mdp);
+		String button = request.getParameter("button");
+
+		if (button.equals("connect")) {
+			try {
+				Utilisateur user = UtilisateurManager.getInstance().seConnecter(login, mdp);
+				request.getSession().setAttribute("user", user);
+				response.sendRedirect("accueil");
+			} catch (BusinessException e) {
+				request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+			}
+		} else if (button.equals("create")) {
+			response.sendRedirect("NouvelUtilisateur");
 		}
-		/*} else if(button.equals("create")){
-			request.getRequestDispatcher("WEB-INF/Jsp/inserUpdate.jsp").forward(request, response);
-		}*/
 	}
 }
