@@ -32,7 +32,16 @@
 	#button-modifier{
 	
     margin: 0 auto;
-
+    
+	}
+	#lien-modifier{
+	 text-decoration : none;
+	 color : #000;
+	}
+	
+	#lien-modifier:visited{
+		text-decoration : none;
+		color:#000;
 	}
 		
 
@@ -51,9 +60,14 @@
 			</ul>
 		</div>
 	</c:if>
-	<h1>ENI-Enchères</h1>
+	<c:if test="${!empty sessionScope.user}">
+		<jsp:include page="/fragments/headerConnecte.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${empty sessionScope.user}">
+		<jsp:include page="/fragments/header.jsp"></jsp:include>
+	</c:if>
 	<div class="container">
-			<p >Afficher le profil de ${profil.pseudo}</p>
+			<p >Profil de ${profil.pseudo}</p>
 		<div class="container-profil">
 			<div class="champs">
 				<p>Pseudo : </p>
@@ -89,8 +103,8 @@
 			</div>
 		</div>
 		<c:if test="${profil.no_utilisateur == user.no_utilisateur}">
-		<form method="post">
-			<button type="submit" class="btn btn-primary" id="button-modifier">Modifier</button>
+		<form method="post" action="">
+			<button type="submit" class="btn btn-primary" id="button-modifier"><a id="lien-modifier" href="${pageContext.request.contextPath}/modifiermonprofil?no_utilisateur=${user.no_utilisateur}">Modifier</a></button>
 		</form>	
 		</c:if>
 	</div>

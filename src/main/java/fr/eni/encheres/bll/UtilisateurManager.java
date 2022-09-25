@@ -144,8 +144,30 @@ public class UtilisateurManager {
 		}
 	}
 
-	public Utilisateur getUserById(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Utilisateur getUserById(Integer id) {
+		Utilisateur userAfficher = daoUser.getUserById(id);
+		return userAfficher;
 	}
+	
+	public void updateUser(Utilisateur user) throws ClassNotFoundException, BusinessException{
+		BusinessException be = new BusinessException();
+		if (user.getPseudo().length() < 30 && user.getNom().length() < 30 &&
+				  user.getPrenom().length() < 30 && user.getEmail().length() < 50 &&
+				  user.getEmail().contains("@") && user.getTelephone().length() < 15 &&
+				  user.getRue().length() < 30 && user.getCode_postal().length() < 10 &&
+				  user.getVille().length() < 30 && user.getMot_de_passe().length() < 30) {
+				  
+				  daoUser.modifierUtilisateur(user);
+				  } else{ 
+			      be = new BusinessException();
+				  be.ajouterErreur(CodesResultatBLL.INFOS_KO); 
+				  
+				  }
+		 
+	}
+	
+	public void deleteUser(Utilisateur user) throws BusinessException {
+		daoUser.supprimerUtilisateur(user);
+		
+	}	
 }

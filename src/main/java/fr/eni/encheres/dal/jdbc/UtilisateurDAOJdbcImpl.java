@@ -104,8 +104,45 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO{
 	}
 
 	@Override
-	public Utilisateur modifierUtilisateur(Utilisateur user) {
-		// TODO Auto-generated method stub
-		return null;
+	public void modifierUtilisateur(Utilisateur user) {
+		Connection cnx = null;
+		PreparedStatement query = null;
+		try {
+			cnx = ConnectionProvider.getConnection();
+			query = cnx.prepareStatement(updateUserInfo);
+					query.setString(1, user.getNom());
+					query.setString(2, user.getPrenom());
+					query.setString(3, user.getPseudo());
+					query.setString(4, user.getEmail());
+					query.setString(5, user.getTelephone());
+					query.setString(6, user.getRue());
+					query.setString(7, user.getCode_postal());
+					query.setString(8, user.getVille());
+					query.setString(9, user.getMot_de_passe());
+					query.setInt(10, user.getNo_utilisateur());
+					
+				  query.executeUpdate();
+					
+					
+					
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+	}
+
+	@Override
+	public void supprimerUtilisateur(Utilisateur user) {
+		Connection cnx = null;
+		PreparedStatement query = null;
+		try {
+			cnx = ConnectionProvider.getConnection();
+			query = cnx.prepareStatement(deleteUser);
+			query.setInt(1,user.getNo_utilisateur());
+			query.executeUpdate();
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 	}
 }
