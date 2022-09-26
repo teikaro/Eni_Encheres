@@ -1,11 +1,16 @@
 package fr.eni.encheres.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.eni.encheres.bll.ArticleManager;
+import fr.eni.encheres.bo.Articles;
 
 @WebServlet("/accueil")
 public class AccueilServlet extends HttpServlet {
@@ -20,8 +25,15 @@ public class AccueilServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/Jsp/accueil.jsp").forward(request, response);
-	}
+    	
+    	
+    		List<Articles> liste = ArticleManager.getInstance().selectVentesEnCours(); 
+    		
+    		request.setAttribute("liste", liste);
+    		request.getRequestDispatcher("/WEB-INF/Jsp/accueil.jsp").forward(request, response);
+		}
+    
+    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
