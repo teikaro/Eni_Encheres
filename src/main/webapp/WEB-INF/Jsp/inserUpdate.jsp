@@ -37,7 +37,7 @@
                         <input id="id-fld-name" name="fld-name" type="text" class="fld-field" required="required" placeholder="Votre nom ?" />
                     </div>
                     <div class="form-label">
-                        <label for="id-fld-dateNaissance">Prénom : </label>
+                        <label for="id-fld-prenom">Prénom : </label>
                     </div>
                     <div class="form-field">
                         <input id="id-fld-prenom" name="fld-prenom" type="text" class="fld-field" required="required" placeholder="Votre prenom ?" />
