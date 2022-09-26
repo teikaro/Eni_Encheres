@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
+<jsp:include page="/fragments/head.jsp"></jsp:include>
 <style>
 
 /*css provisoire*/
@@ -46,9 +46,21 @@
 		
 
 </style>
-<meta charset="UTF-8">
-<title>Affichage du profil </title>
+
+<title>Mon profil </title>
 </head>
+
+<head>
+<meta charset="UTF-8">
+<title>Modifier</title>
+</head>
+<body>
+	<c:if test="${!empty sessionScope.user}">
+		<jsp:include page="/fragments/headerConnecte.jsp"></jsp:include>
+	</c:if>
+	<c:if test="${empty sessionScope.user}">
+		<jsp:include page="/fragments/header.jsp"></jsp:include>
+	</c:if>
 <body>
 	<c:if test="${!empty listeCodesErreur}">
 		<div class="alert alert-danger" role="alert">

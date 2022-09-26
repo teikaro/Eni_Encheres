@@ -7,7 +7,7 @@
 <jsp:include page="/fragments/head.jsp"></jsp:include>
 <head>
 <meta charset="UTF-8">
-<title>Modifier</title>
+<title>Modifier mes informations</title>
 </head>
 <body>
 	<c:if test="${!empty sessionScope.user}">
@@ -26,7 +26,7 @@
                 	<input id="id-fld-name" name="fld-name" type="text" class="fld-field"  required="required" value="${user.nom}"/>
                 </div>
                 <div class="form-label">
-                	<label for="id-fld-dateNaissance">Prénom : </label>
+                	<label for="id-fld-prenom">Prénom : </label>
                 </div>
                 <div class="form-field">
                 	<input id="id-fld-prenom" name="fld-prenom" type="text" class="fld-field"  required="required" value="${user.prenom}" />

@@ -1,14 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="fr.eni.encheres.messages.LecteurMessage" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Mes Informations</title>
+<jsp:include page="/fragments/head.jsp"/>
+<title>Créer son Profil</title>
 </head>
 <body>
 <div id="modal-dialog-form" class="dialog-form" title="Mes infos">
-		<h2>ENI-Enchères</h2>
+<c:if test="${!empty sessionScope.user}">
+		<jsp:include page="/fragments/headerConnecte.jsp"/>
+	</c:if>
+	<c:if test="${empty sessionScope.user}">
+		<jsp:include page="/fragments/header.jsp"/>
+	</c:if>
+		
+		<c:if test="${!empty listeCodesErreur}">
+			<div class="alert alert-danger" role="alert">
+			  <strong>Erreur!</strong>
+			  <ul>
+			  	<c:forEach var="code" items="${listeCodesErreur}">
+			  		<li>${LecteurMessage.getMessageErreur(code)}</li>
+			  	</c:forEach>
+			  </ul>
+			</div>
+		</c:if>
 		
 		<form name="form_compte" action="" method="post">
                 <div class="form-message">Mes Informations</div>
@@ -82,10 +99,8 @@
                         <input id="id-fld-mdp2" name="fld-mdp2" type="password" class="fld-field" required="required" />
                     </div>
                 </div>
-                 <button type="submit" name="button" value ="inser">Créer un compte</button>
-    		</form>
-    		<form  action="" method="post">
-    			<button type="submit" name ="button" value = "reset">Annuler</button>
+                 <button type="submit" name="button" class="btn btn-primary" value ="inser">Créer un compte</button>
+                 <a href="${pageContext.request.contextPath}/accueil" class="btn btn-primary">Annuler</a>
     		</form>
 	</div>
 </body>

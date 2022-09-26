@@ -1,8 +1,6 @@
 package fr.eni.encheres.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -77,9 +75,6 @@ public class ServletInser extends HttpServlet {
 					e.printStackTrace();
 					request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
 					request.getRequestDispatcher("/WEB-INF/Jsp/inserUpdate.jsp").forward(request, response);
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 			}
 		} else if (button.equals("reset")) {

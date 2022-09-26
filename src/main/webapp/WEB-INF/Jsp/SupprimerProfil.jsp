@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+<jsp:include page="/fragments/head.jsp"></jsp:include>
 <title>Suppression profil</title>
 </head>
 <body>
