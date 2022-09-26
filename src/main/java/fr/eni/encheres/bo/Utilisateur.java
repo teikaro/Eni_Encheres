@@ -18,6 +18,20 @@ public class Utilisateur {
 	    	
 	    }
 	    
+	    
+	    
+		public Utilisateur(Integer no_utilisateur, String pseudo) {
+			super();
+			this.no_utilisateur = no_utilisateur;
+			this.pseudo = pseudo;
+		}
+
+		public Utilisateur( String pseudo) {
+			super();
+			this.pseudo = pseudo;
+		}
+
+
 		public Utilisateur(Integer no_utilisateur, String pseudo, String nom, String prenom, String email,
 				String telephone, String rue, String code_postal, String ville, String mot_de_passe, int credit, boolean administrateur) {
 			this.no_utilisateur = no_utilisateur;
