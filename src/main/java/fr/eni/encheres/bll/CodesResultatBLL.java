@@ -31,5 +31,17 @@ public abstract class CodesResultatBLL {
 	
 	public static final int MDP_KO = 20012;
 
+	public static final int REGLE_ARTICLE_NOM_ERREUR = 0;
+
+	public static final int REGLE_ARTICLE_DESCRIPTION_ERREUR = 0;
+
+	public static final int REGLE_ARTICLE_DATEDEBUTENCHERE_ERREUR = 0;
+
+	public static final int REGLE_ARTICLE_DATEFINENCHERE_ERREUR = 0;
+
+	public static final int REGLE_ARTICLE_MISEAPRIX_ERREUR = 0;
+
+	public static final int REGLE_ARTICLE_PRIXVENTE_ERREUR = 0;
+
 	
 }
