@@ -1,68 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="fr.eni.encheres.messages.LecteurMessage"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form class="filtreForm"
-	action="${pageContext.request.contextPath}/accueil" method="post"
-	id="formradio">
+<!DOCTYPE html>
 
-	<input type="hidden" name="form" value="form" />
+<html>
 
-	<fieldset id="check">
+<head>
 
-		<legend>Enchères</legend>
+<meta charset="UTF-8">
 
-		<div>
+</head>
 
-			<input type="radio" id="encheres_ouvertes" name="check"
-				value="encheres_ouvertes" /> <label for="encheres_ouvertes">Ouvertes</label>
+<body>
 
-		</div>
+<div class="row mx-auto p-5" style="max-width: 1280px;">
+		
+			<c:forEach var ="article" items="${liste}">
+				<div class="card mb-4 mx-auto" style="max-width: 540px;">
+				  <div class="row g-0">
+				    <div class="col-md-8">
+				      <div class="card-body">
+				        <h5 class="card-title">Nom de l'article : <a><c:out value="${article.nom_article}"/></a> </h5>
+				       		 <p class="card-text"> Prix : ${article.prix_initial} points </p>
+				       <!--   <p class="card-text"> Fin de l'enchÃ¨re le : ${article.date_fin_encheres}</p> -->
+				        <p class="card-text"> Vendeur : ${article.no_utilisateur} </p>	      
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</c:forEach>
 
-		<div>
+		<c:if test="${empty liste}">
+			<h3 class="text-center p-5"> Aucune enchÃ¨re actuellement en cours !</h3>
+		</c:if>
+	</div>
 
-			<input type="radio" id="mes_encheres_en_cours" name="check"
-				value="mes_encheres_en_cours" /> <label for="mes_encheres_en_cours">En
-				cours</label>
+    		
+</body>
 
-		</div>
-
-		<div>
-
-			<input type="radio" id="mes_encheres_remportees" name="check"
-				value="mes_encheres_remportees" /> <label
-				for="mes_encheres_remportees">Remportées</label>
-
-		</div>
-
-	</fieldset>
-
-
-
-	<fieldset>
-
-		<legend>Mes ventes</legend>
-
-		<div>
-
-			<input type="radio" id="mes_ventes_en_cours" name="check"
-				value="mes_ventes_en_cours" /> <label for="mes_ventes_en_cours">En
-				cours</label>
-
-		</div>
-
-		<div>
-
-			<input type="radio" id="ventes_non_debutees" name="check"
-				value="ventes_non_debutees" /> <label for="ventes_non_debutees">Non
-				débutées</label>
-
-		</div>
-
-		<div>
-
-			<input type="radio" id="ventes_terminees" name="check"
-				value="ventes_terminees" /> <label for="ventes_terminees">Terminées</label>
-
-		</div>
-
-	</fieldset>
-
-</form>
+</html>
