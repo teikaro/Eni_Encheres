@@ -36,6 +36,7 @@ public class ServletAfficherProfil extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().getAttribute("user");
+		//response.sendRedirect(request.getContextPath() + "/accueil?no_utilisateur=" + user.getNo_utilisateur());
 		
 }
 }

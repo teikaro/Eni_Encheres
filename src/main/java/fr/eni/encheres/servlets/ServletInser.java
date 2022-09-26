@@ -73,12 +73,12 @@ public class ServletInser extends HttpServlet {
 					request.getSession().setAttribute("user", user);
 					response.sendRedirect("accueil");
 				} catch (BusinessException e) {
-					
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 					request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
 					request.getRequestDispatcher("/WEB-INF/Jsp/inserUpdate.jsp").forward(request, response);
 				} catch (ClassNotFoundException e) {
-		
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
