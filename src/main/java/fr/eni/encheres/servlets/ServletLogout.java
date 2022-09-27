@@ -20,7 +20,7 @@ public class ServletLogout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		request.getRequestDispatcher("/WEB-INF/Jsp/accueil.jsp").forward(request, response);
+		response.sendRedirect("accueil");
 	}
 
 	/**
