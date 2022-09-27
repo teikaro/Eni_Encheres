@@ -57,5 +57,9 @@ public class ArticleManager {
        }
 
     }
+
+    public Articles selectByNoArticle(int noArticle) throws BusinessException {
+        return this.articleDAO.selectByNoArticle(noArticle);
+    }
     
 }

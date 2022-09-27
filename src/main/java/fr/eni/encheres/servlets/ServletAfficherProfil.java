@@ -38,5 +38,5 @@ public class ServletAfficherProfil extends HttpServlet
 		request.getSession().getAttribute("user");
 		//response.sendRedirect(request.getContextPath() + "/accueil?no_utilisateur=" + user.getNo_utilisateur());
 		
-}
+	}
 }

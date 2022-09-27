@@ -15,10 +15,7 @@ public class Utilisateur {
 	    private boolean administrateur;
 	    
 	    public Utilisateur () {
-	    	
 	    }
-	    
-	    
 	    
 		public Utilisateur(Integer no_utilisateur, String pseudo) {
 			super();

@@ -113,9 +113,9 @@ public class UtilisateurDAOJdbcImpl implements UtilisateurDAO{
 		try {
 			cnx = ConnectionProvider.getConnection();
 			query = cnx.prepareStatement(updateUserInfo);
-					query.setString(1, user.getNom());
-					query.setString(2, user.getPrenom());
-					query.setString(3, user.getPseudo());
+					query.setString(1, user.getPseudo());
+					query.setString(2, user.getNom());
+					query.setString(3, user.getPrenom());
 					query.setString(4, user.getEmail());
 					query.setString(5, user.getTelephone());
 					query.setString(6, user.getRue());

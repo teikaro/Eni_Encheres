@@ -39,7 +39,6 @@ public class UtilisateurManager {
 			be = new BusinessException();
 			be.ajouterErreur(CodesResultatBLL.LOGIN_KO);
 		}
-		
 		if (be != null) {
 			throw be;
 		}

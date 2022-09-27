@@ -20,7 +20,7 @@
 				<div class="card mb-4 mx-auto" style="width: 600px;">
 				<img class="card-img" src="https://www.w3.org/html/logo/downloads/HTML5_sticker.png" style="width: 600px; height: 150px;" alt="Card image cap">	 
 				      <div class="card-body"> 
-				        <h5 class="card-title"><a href=""><c:out value="${article.nom_article}"/></a> </h5>
+				        <h5 class="card-title"><a href="${pageContext.request.contextPath}/detailArticle?no_article=${article.no_article}"><c:out value="${article.nom_article}"/></a> </h5>
 				       		 <p class="card-text"> Prix : ${article.prix_initial} points </p>
 				          <p class="card-text"> Fin de l'enchère le : ${article.date_fin_encheres}</p> 
 				        <p class="card-text"> Vendeur : <a href="${pageContext.request.contextPath}/profil?no_utilisateur=${article.no_utilisateur}">${article.user.pseudo}</a>  </p>

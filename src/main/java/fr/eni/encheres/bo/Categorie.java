@@ -1,9 +1,13 @@
 package fr.eni.encheres.bo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Categorie {
 
 	private Integer no_categorie;
     private String libelle;
+    private List<Articles> articles = new ArrayList<>();
     
     
 	public Categorie(Integer no_categorie, String libelle) {
@@ -17,7 +21,7 @@ public class Categorie {
 	}
 
 
-	public Categorie(String string) {
+	public Categorie(String libelle) {
 		this.libelle = libelle;
 	}
 
@@ -40,8 +44,25 @@ public class Categorie {
 		this.libelle = libelle;
 	}
 
+	public List<Articles> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Articles> articles) {
+		this.articles = articles;
+	}
     
+	//Fonction d'ajout d'un article
+    public void addArticle(Articles article)
+    {
+        this.articles.add(article);
+    }
+
+	@Override
+	public String toString() {
+		return "Categorie [no_categorie=" + no_categorie + ", libelle=" + libelle + ", articles=" + articles + "]";
+	}
     
-	
+   
 }
 

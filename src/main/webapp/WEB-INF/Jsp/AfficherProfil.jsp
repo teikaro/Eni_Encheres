@@ -61,7 +61,6 @@
 	<c:if test="${empty sessionScope.user}">
 		<jsp:include page="/fragments/header.jsp"></jsp:include>
 	</c:if>
-<body>
 	<c:if test="${!empty listeCodesErreur}">
 		<div class="alert alert-danger" role="alert">
 			<strong>Erreur!</strong>
