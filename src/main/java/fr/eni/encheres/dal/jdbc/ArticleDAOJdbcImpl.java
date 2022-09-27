@@ -35,13 +35,12 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	                        rs.getDate("date_debut_encheres"), rs.getDate("date_fin_encheres"),
 	                        rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));
 
-	                Utilisateur user = new Utilisateur(rs.getString("pseudo"));
+	                Utilisateur user = new Utilisateur(rs.getInt("no_utilisateur"), rs.getString("pseudo"));
 	                Categorie categorie = new Categorie(rs.getString("libelle"));
 	                
 	                article.setUser(user);
 	                article.setLibelle(categorie);
 	                
-	              article.toString2();
 	              listeArticles.add(article);
 
 	            }
