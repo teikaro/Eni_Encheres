@@ -17,8 +17,8 @@
 <div class="row mx-auto p-5" style="max-width: 1280px;">
 		
 			<c:forEach var ="article" items="${liste}">
-				<div class="card mb-4 mx-auto" style="width: 600px;">
-				<img class="card-img" src="https://www.w3.org/html/logo/downloads/HTML5_sticker.png" style="width: 600px; height: 150px;" alt="Card image cap">	 
+				<div class="card mb-4 mx-auto" style="width: 400px;">
+				<img class="card-img" src="https://www.w3.org/html/logo/downloads/HTML5_sticker.png" style="width: 400px; height: 150px;" alt="Card image cap">	 
 				      <div class="card-body"> 
 				        <h5 class="card-title"><a href="${pageContext.request.contextPath}/detailArticle?no_article=${article.no_article}"><c:out value="${article.nom_article}"/></a> </h5>
 				       		 <p class="card-text"> Prix : ${article.prix_initial} points </p>
@@ -32,8 +32,6 @@
 			<h3 class="text-center p-5"> Aucune enchère actuellement en cours !</h3>
 		</c:if>
 	</div>
-
-    		
 </body>
 
 </html>
