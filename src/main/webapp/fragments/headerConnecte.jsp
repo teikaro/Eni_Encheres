@@ -22,7 +22,7 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="#">Enchères<span class="sr-only">(current)</span></a></li>
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Vendre un article</a></li>
+						<a class="nav-link" href="${pageContext.request.contextPath}/NouvelArticle">Vendre un article</a></li>
 					<li class="nav-item active">
 						<a class="nav-link" href="${pageContext.request.contextPath}/profil?no_utilisateur=${user.no_utilisateur}">Mon profil</a></li>
 					<li class="nav-item active">
