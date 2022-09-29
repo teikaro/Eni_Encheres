@@ -24,14 +24,14 @@
 			<input type="text" id="id_nom_article" name="nom_article" required="required"></div>
 			<div><label for="desc">Description : </label>
 			<textarea id="id_desc" name="desc" rows="5" placeholder="Vous pouvez décrire votre article ici." required="required"></textarea></div>
+			
 			<div><label for="type">Catégorie : </label>
-			<select name="type"
-				id="type-select">
-				<option value="informatique">Informatique</option>
-				<option value="ameublement">Ameublement</option>
-				<option value="vetement">Vêtement</option>
-				<option value="sport">Sport et Loisirs</option>
+			<select name="type"	id="type-select">
+				<c:forEach var="categorie" items="${types}">
+					<option value="${categorie.no_categorie}"><c:out value="${categorie.libelle}"/></option>
+				</c:forEach>
 			</select></div>
+			
 			<div><label for="prix_ini">Mise à prix</label>
 			<input type="number" id="id_prix_ini" name="prix_ini" step="10"required="required"></div>
 			<div><label for="date_start">Début de l'enchère</label>
@@ -41,11 +41,11 @@
 			<fieldset>
 				<legend>Retrait</legend>
 				<div><label for="rue">Rue : </label>
-				<input type="text" id="id_rue" name="rue" value="${user.rue}" required="required"></div>
+				<input type="text" id="id_rue" name="rue" value="${sessionScope.user.rue}" required="required"></div>
 				<div><label for="cp">Code postal : </label>
-				<input type="text" id="id_cp" name="cp" value="${user.code_postal}" required="required"></div>
+				<input type="text" id="id_cp" name="cp" value="${sessionScope.user.code_postal}" required="required"></div>
 				<div><label for="ville">Ville : </label>
-				<input type="text" id="id_ville" name="ville" value="${user.ville}" required="required"></div>
+				<input type="text" id="id_ville" name="ville" value="${sessionScope.user.ville}" required="required"></div>
 			</fieldset>
 			 <button type="submit" name="button" class="btn btn-primary" value ="inser">Enregister</button>
              <a href="${pageContext.request.contextPath}/accueil" class="btn btn-primary">Annuler</a>
