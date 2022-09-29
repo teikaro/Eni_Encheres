@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.encheres.bll.ArticleManager;
+import fr.eni.encheres.bll.CategorieManager;
 import fr.eni.encheres.bo.Articles;
+import fr.eni.encheres.bo.Categorie;
 
 @WebServlet("/accueil")
 public class AccueilServlet extends HttpServlet {
@@ -26,7 +28,7 @@ public class AccueilServlet extends HttpServlet {
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	
+    		//Categorie categorie = CategorieManager.getInstance().selectLibelle();
     		List<Articles> liste = ArticleManager.getInstance().selectVentesEnCours(); 
     		
     		request.setAttribute("liste", liste);
