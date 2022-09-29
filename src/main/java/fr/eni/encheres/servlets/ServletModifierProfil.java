@@ -78,15 +78,7 @@ public class ServletModifierProfil extends HttpServlet {
 			}
 			
 		 }
-			 else if (button.equals("supprimer")) {
-				 try {
-					UtilisateurManager.getInstance().deleteUser(user);
-					response.sendRedirect(request.getContextPath() + "/supprimerprofil");
-				} catch (BusinessException e) {
-					e.printStackTrace();
-				}
 				
 			  }
 			 
 	}
-}

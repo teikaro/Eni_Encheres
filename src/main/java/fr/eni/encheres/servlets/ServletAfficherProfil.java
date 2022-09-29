@@ -36,7 +36,17 @@ public class ServletAfficherProfil extends HttpServlet
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().getAttribute("user");
+		String button = request.getParameter("button");
+		Utilisateur user = (Utilisateur) request.getSession().getAttribute("user");
+		if(button.equals("supprimer")) {
+			 try {
+				UtilisateurManager.getInstance().deleteUser(user);
+				response.sendRedirect("logout");
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
 		//response.sendRedirect(request.getContextPath() + "/accueil?no_utilisateur=" + user.getNo_utilisateur());
 		
 	}
+}
 }
