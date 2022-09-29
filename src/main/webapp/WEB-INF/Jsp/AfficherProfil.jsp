@@ -5,54 +5,8 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="/fragments/head.jsp"></jsp:include>
-<style>
-
-/*css provisoire*/
-.container {
-
-	 text-align:center;
-
-
-} 
-	.container-profil {
-	    display : flex;
-	    flex-direction : column;
-	    justify-content : center;
-	    align-items : center;
-	    border : 1px solid #000;
-	    margin-bottom : 10px;
-	 
-	}
-	
-	.champs {
-		display : flex;	
-		justify-content : flex-start;
-	}
-	
-	#button-modifier{
-	
-    margin: 0 auto;
-    
-	}
-	#lien-modifier{
-	 text-decoration : none;
-	 color : #000;
-	}
-	
-	#lien-modifier:visited{
-		text-decoration : none;
-		color:#000;
-	}
-		
-
-</style>
 
 <title>Mon profil </title>
-</head>
-
-<head>
-<meta charset="UTF-8">
-<title>Modifier</title>
 </head>
 <body>
 	<c:if test="${!empty sessionScope.user}">

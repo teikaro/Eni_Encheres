@@ -8,10 +8,11 @@ import fr.eni.encheres.dal.UtilisateurDAO;
 public class UtilisateurManager {
 
 	private static final String EMAIL_VERIFICATION = "^(.+)@(.+)$"; // "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-	private static final String STRING_VERIFICATION = "^[^\\d\\s]+$";
+	private static final String STRING_VERIFICATION = "^[^\\d\\s'-]+$";
 	private static final String STRING_PSEUDO = "^[^\\s]+$";
 	private static final String CHECK_NUMBER = "^\\d{10}$";
 	private static final String CHECK_CP = "^\\d{5}$";
+	private static final String CHECK_ADRESSE = "/^[a-zA-Z0-9\s,.'-]{3,}$/";
 	private static final String REGEX_MDP = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
 	private static UtilisateurManager instance;
 	private UtilisateurDAO daoUser;
@@ -63,7 +64,6 @@ public class UtilisateurManager {
 		} else {
 			throw be;
 		}
-
 	}
 
 	public void updateUser(Utilisateur user) throws ClassNotFoundException, BusinessException{
@@ -86,6 +86,11 @@ public class UtilisateurManager {
 	public void deleteUser(Utilisateur user) throws BusinessException {
 		daoUser.supprimerUtilisateur(user);
 
+	}
+	
+	public Utilisateur getUserById(Integer id) {
+		Utilisateur userAfficher = daoUser.getUserById(id);
+		return userAfficher;
 	}
 
 	// ------------------------------- METHODES DE CONTROLE -----------------------------------------
@@ -154,11 +159,6 @@ public class UtilisateurManager {
 		if (!mdp.matches(STRING_VERIFICATION) || mdp.length() > 30) {
 			be.ajouterErreur(CodesResultatBLL.MDP_KO);
 		}
-	}
-
-	public Utilisateur getUserById(Integer id) {
-		Utilisateur userAfficher = daoUser.getUserById(id);
-		return userAfficher;
 	}
 
 }

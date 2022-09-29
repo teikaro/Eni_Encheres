@@ -6,7 +6,7 @@ import java.util.List;
 
 import fr.eni.encheres.BusinessException;
 import fr.eni.encheres.bo.Articles;
-import fr.eni.encheres.bo.Categorie;
+import fr.eni.encheres.bo.Categories;
 import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.bo.Utilisateur;
 import fr.eni.encheres.dal.ArticleDAO;
@@ -28,8 +28,8 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	            "INNER JOIN Retraits r ON a.no_article = r.no_article " +
 	            "INNER JOIN CATEGORIES c ON a.no_categorie = c.no_categorie " +
 	            "WHERE a.no_article = ?";
-	
-	
+	 private static final String INSERT_ARTICLE = "INSERT into ARTICLES(nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
+	 private static final String INSERT_RETRAIT = "INSERT into RETRAITS values (?,?,?,?)";
 	 @Override
 	    public List<Articles> selectVentesEnCours(){
 	        List<Articles> listeArticles = new ArrayList<>();
@@ -45,7 +45,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	                        rs.getInt("prix_initial"), rs.getInt("prix_vente"), rs.getInt("no_utilisateur"), rs.getInt("no_categorie"));
 
 	                Utilisateur user = new Utilisateur(rs.getString("pseudo"));
-	                Categorie categorie = new Categorie(rs.getString("libelle"));
+	                Categories categorie = new Categories(rs.getString("libelle"));
 	                
 	                article.setUser(user);
 	                article.setLibelle(categorie);
@@ -79,7 +79,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	                article.setNom_article(rs.getString(2));
 	                article.setDescription(rs.getString(3));
 	                article.setDate_debut_encheres(rs.getDate(4));
-	                article.setDate_debut_encheres(rs.getDate(5));
+	                article.setDate_fin_encheres(rs.getDate(5));
 	                article.setPrix_initial(6);
 	                article.setPrix_vente(rs.getInt(7));
 
@@ -93,7 +93,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	                Retrait retrait = new Retrait(rs.getString(9), rs.getString(10), rs.getString(11));
 	                article.setLieuRetrait(retrait);
 
-	                Categorie categorie = new Categorie(rs.getString(12));
+	                Categories categorie = new Categories(rs.getString(12));
 	                categorie.setNo_categorie(rs.getInt(13));
 	                article.setCategorieArticle(categorie);
 	                
@@ -107,5 +107,45 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
 	        }
 	        return article;
 	    }
+
+	@Override
+	public void insertArticle(Articles article, Retrait retrait) throws BusinessException {
+		Connection c = null;
+		PreparedStatement rqt = null;
+		
+		try {
+			c = ConnectionProvider.getConnection();
+			c.setAutoCommit(false);
+			rqt = c.prepareStatement(INSERT_ARTICLE, Statement.RETURN_GENERATED_KEYS);
+			rqt.setString(1, article.getNom_article());
+			rqt.setString(2, article.getDescription());
+			rqt.setDate(3, article.getDate_debut_encheres());
+			rqt.setDate(4, article.getDate_fin_encheres());
+			rqt.setInt(5, article.getPrix_initial());
+			rqt.setInt(6, article.getNo_utilisateur());
+			rqt.setInt(7, article.getNo_categorie());
+			
+			int nbRows = rqt.executeUpdate();
+			if (nbRows == 1) {
+				ResultSet rs = rqt.getGeneratedKeys();
+				if (rs.next()) {
+					article.setNo_article(rs.getInt(1));
+				}
+			}
+			rqt = c.prepareStatement(INSERT_RETRAIT);
+			rqt.setInt(1, article.getNo_article());
+			rqt.setString(2, retrait.getRue());
+			rqt.setString(3, retrait.getCode_postal());
+			rqt.setString(4, retrait.getVille());
+			 
+			rqt.executeUpdate();
+			
+			c.commit();
+			c.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

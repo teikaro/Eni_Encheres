@@ -25,10 +25,9 @@
 			<label for="site-search">Catégorie :</label> <select name="catégorie"
 				id="categorie-select">
 				<option value="">Toutes</option>
-				<option value="informatique">Informatique</option>
-				<option value="ameublement">Ameublement</option>
-				<option value="vetement">Vêtement</option>
-				<option value="sport">Sport et Loisirs</option>
+				<c:forEach var="categorie" items="${types}">
+					<option value="${categorie.no_categorie}"><c:out value="${categorie.libelle}"/></option>
+				</c:forEach>
 			</select>
 
 			<button class="btn btn-primary">Rechercher</button>

@@ -27,10 +27,9 @@
 			<div><label for="type">Catégorie : </label>
 			<select name="type"
 				id="type-select">
-				<option value="informatique">Informatique</option>
-				<option value="ameublement">Ameublement</option>
-				<option value="vetement">Vêtement</option>
-				<option value="sport">Sport et Loisirs</option>
+				<c:forEach var="categorie" items="${types}">
+					<option value="${categorie.no_categorie}"><c:out value="${categorie.libelle}"/></option>
+				</c:forEach>
 			</select></div>
 			<div><label for="prix_ini">Mise à prix</label>
 			<input type="number" id="id_prix_ini" name="prix_ini" step="10"required="required"></div>

@@ -3,25 +3,25 @@ package fr.eni.encheres.bo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categorie {
+public class Categories {
 
 	private Integer no_categorie;
     private String libelle;
     private List<Articles> articles = new ArrayList<>();
     
     
-	public Categorie(Integer no_categorie, String libelle) {
+	public Categories(Integer no_categorie, String libelle) {
 		super();
 		this.no_categorie = no_categorie;
 		this.libelle = libelle;
 	}
 	
-	public Categorie() {
+	public Categories() {
 		super();
 	}
 
 
-	public Categorie(String libelle) {
+	public Categories(String libelle) {
 		this.libelle = libelle;
 	}
 

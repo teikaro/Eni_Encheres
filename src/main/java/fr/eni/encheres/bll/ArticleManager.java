@@ -2,6 +2,7 @@ package fr.eni.encheres.bll;
 
 import fr.eni.encheres.BusinessException;
 import fr.eni.encheres.bo.Articles;
+import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.dal.ArticleDAO;
 import fr.eni.encheres.dal.DAOFactory;
 
@@ -61,5 +62,15 @@ public class ArticleManager {
     public Articles selectByNoArticle(int noArticle) throws BusinessException {
         return this.articleDAO.selectByNoArticle(noArticle);
     }
-    
+
+	public void checkInsertAricle(Articles article, Retrait retrait) throws BusinessException{
+		BusinessException be = new BusinessException();
+		
+		if (!be.hasErreurs()) {
+			articleDAO.insertArticle(article, retrait);
+		} else {
+			throw be;
+		}
+	}
+
 }

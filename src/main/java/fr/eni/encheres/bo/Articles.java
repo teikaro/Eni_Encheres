@@ -14,8 +14,8 @@ public class Articles {
     private Integer no_utilisateur;
     private Integer no_categorie;
 	private Utilisateur user;
-	private Categorie libelle; 
-	private Categorie categorieArticle;
+	private Categories libelle; 
+	private Categories categorieArticle;
 	private Retrait lieuRetrait;
     
     
@@ -24,7 +24,7 @@ public class Articles {
     
     public Articles(Integer no_article, String nom_article, String description, Date date_debut_encheres,
 			Date date_fin_encheres, Integer prix_initial, Integer prix_vente, Integer no_utilisateur,
-			Integer no_categorie, Utilisateur user, Categorie libelle) {
+			Integer no_categorie, Utilisateur user, Categories libelle) {
 		super();
 		this.no_article = no_article;
 		this.nom_article = nom_article;
@@ -69,7 +69,7 @@ public class Articles {
 		this.no_categorie = no_categorie;
 	}
 
-	public Articles(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, Integer miseAPrix, Integer prixVente, Categorie categorieArticle, Retrait lieuRetrait, Utilisateur user) {
+	public Articles(String nomArticle, String description, Date dateDebutEncheres, Date dateFinEncheres, Integer miseAPrix, Integer prixVente, Categories categorieArticle, Retrait lieuRetrait, Utilisateur user) {
         this.nom_article = nomArticle;
         this.description = description;
         this.date_debut_encheres = dateDebutEncheres;
@@ -171,20 +171,20 @@ public class Articles {
 		this.lieuRetrait = lieuRetrait;
 	}
 
-	public Categorie getCategorieArticle() {
+	public Categories getCategorieArticle() {
 		return categorieArticle;
 	}
 
-	public void setCategorieArticle(Categorie categorieArticle) {
+	public void setCategorieArticle(Categories categorieArticle) {
 		this.categorieArticle = categorieArticle;
 		categorieArticle.addArticle(this);
 	}
 	
-	public Categorie getLibelle() {
+	public Categories getLibelle() {
 		return libelle;
 	}
 
-	public void setLibelle(Categorie libelle) {
+	public void setLibelle(Categories libelle) {
 		this.libelle = libelle;
 	}
 
