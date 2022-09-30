@@ -6,6 +6,8 @@
 <title>Suppression profil</title>
 </head>
 <body>
-	<h1 style="color:green;">Votre profil a bien été suprrimé</h1>
+<div style=" display: flex; justify-content: center; align-items: center;">
+	<img src="https://media.makeameme.org/created/get-out-5c6569.jpg">
+</div>
 </body>
 </html>

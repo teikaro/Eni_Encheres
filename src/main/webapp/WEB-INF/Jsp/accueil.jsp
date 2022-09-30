@@ -22,8 +22,7 @@
 			<label for="site-search">Filtres :</label> <input type="search"
 				id="site-search" name="q" placeholder="Le nom de l'article contient">
 
-			<label for="site-search">Catégorie :</label> <select name="catégorie"
-				id="categorie-select">
+			<label for="site-search">Catégorie :</label> <select name="catégorie" id="categorie-select">
 				<option value="">Toutes</option>
 				<c:forEach var="categorie" items="${types}">
 					<option value="${categorie.no_categorie}"><c:out value="${categorie.libelle}"/></option>

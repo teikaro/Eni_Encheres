@@ -5,8 +5,54 @@
 <!DOCTYPE html>
 <html>
 <jsp:include page="/fragments/head.jsp"></jsp:include>
+<style>
+
+/*css provisoire*/
+.container {
+
+	 text-align:center;
+
+
+} 
+	.container-profil {
+	    display : flex;
+	    flex-direction : column;
+	    justify-content : center;
+	    align-items : center;
+	    border : 1px solid #000;
+	    margin-bottom : 10px;
+	 
+	}
+	
+	.champs {
+		display : flex;	
+		justify-content : flex-start;
+	}
+	
+	#button-modifier{
+	
+    margin: 0 auto;
+    
+	}
+	#lien-modifier{
+	 text-decoration : none;
+	 color : #000;
+	}
+	
+	#lien-modifier:visited{
+		text-decoration : none;
+		color:#000;
+	}
+		
+
+</style>
 
 <title>Mon profil </title>
+</head>
+
+<head>
+<meta charset="UTF-8">
+<title>Modifier</title>
 </head>
 <body>
 	<c:if test="${!empty sessionScope.user}">
@@ -44,16 +90,48 @@
                     	<h4 class="text-right">Mon Profil</h4>
                 		</div>
                 	<div class="row mt-2">
-                		<div class="col-md-12"><label class="labels">Pseudo</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.pseudo}"></div>
-                    	<div class="col-md-12"><label class="labels">Nom</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.nom}"></div>
-                    	<div class="col-md-12"><label class="labels">Prénom</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.prenom}"></div>
-                	</div>
+                		<div class="col-md-12">
+                		<label class="labels">Pseudo</label>
+                		<input type="text" readonly="readonly" class="form-control" placeholder="${profil.pseudo}"
+                		></div>
+                		
+                    	<div class="col-md-12">
+							<label class="labels">Nom</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.nom}">
+						</div>
+							
+                    	<div class="col-md-12">
+							<label class="labels">Prénom</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.prenom}"></div>			
+                		</div>
+                	
                 	<div class="row mt-3">
-                    	<div class="col-md-12"><label class="labels">Adresse Email</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.email}"></div>
-                    	<div class="col-md-12"><label class="labels">Numero de téléphone</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.telephone}"></div>
-                    	<div class="col-md-12"><label class="labels">Rue</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.rue}"></div>
-                    	<div class="col-md-12"><label class="labels">Code postal</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.code_postal}"></div>
-                    	<div class="col-md-12"><label class="labels">Ville</label><input type="text" readonly="readonly" class="form-control" placeholder="${profil.ville}"></div>
+                	
+                    	<div class="col-md-12">
+							<label class="labels">Adresse Email</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.email}">
+						</div>
+							
+                    	<div class="col-md-12">
+							<label class="labels">Numero de téléphone</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.telephone}">
+						</div>
+						
+                    	<div class="col-md-12">
+							<label class="labels">Rue</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.rue}">
+						</div>
+							
+                    	<div class="col-md-12">
+							<label class="labels">Code postal</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.code_postal}">
+						</div>
+						
+                    	<div class="col-md-12">
+							<label class="labels">Ville</label>
+							<input type="text" readonly="readonly" class="form-control" placeholder="${profil.ville}">
+						</div>
+						
                 	</div>
                 	
                 	

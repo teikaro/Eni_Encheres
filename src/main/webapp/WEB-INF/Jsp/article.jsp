@@ -18,7 +18,7 @@
 		
 			<c:forEach var ="article" items="${liste}">
 				<div class="card mb-4 mx-auto" style="width: 400px;">
-					<img class="card-img" src="https://www.w3.org/html/logo/downloads/HTML5_sticker.png" style="width: 100%; height: 100%;" alt="Card image cap">	 
+					<img class="card-img" src="https://images.pexels.com/photos/5709063/pexels-photo-5709063.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="width: 100%; height: 100%;" alt="Card image cap">	 
 				      <div class="card-body"> 
 				        <h5 class="card-title"><a href="${pageContext.request.contextPath}/detailArticle?no_article=${article.no_article}"><c:out value="${article.nom_article}"/></a> </h5>
 				       		 <p class="card-text"> Prix : ${article.prix_initial} points </p>

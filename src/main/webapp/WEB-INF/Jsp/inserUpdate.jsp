@@ -26,82 +26,103 @@
 			  </ul>
 			</div>
 		</c:if>
-		
-		<form name="form_compte" action="" method="post">
-                <div class="form-message">Mes Informations</div>
-                <div class="form-line">
-                    <div class="form-label">
-                        <label for="id-fld-name">Nom : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-name" name="fld-name" type="text" class="fld-field" required="required" placeholder="Votre nom ?" />
-                    </div>
-                    <div class="form-label">
-                        <label for="id-fld-prenom">Prénom : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-prenom" name="fld-prenom" type="text" class="fld-field" required="required" placeholder="Votre prenom ?" />
-                    </div>
-                </div>
-                <div class="form-line">
-                    <div class="form-label">
-                        <label for="id-fld-pseudo">Pseudo : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-pseudo" name="fld-pseudo" type="text" class="fld-field" required="required" />
-                    </div>
-                    <div class="form-label">
-                        <label for="id-fld-email">Email : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-email" name="fld-email" type="text" class="fld-field" required="required" placeholder="john.doe@gmail.com" />
-                    </div>
-                </div>
-                <div class="form-line">
-                    <div class="form-label">
-                        <label for="id-fld-adresse">Adresse : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-adresse" name="fld-adresse" type="text" class="fld-field" required="required" />
-                    </div>
-                    <div class="form-label">
-                        <label for="id-fld-ville">Ville : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-ville" name="fld-ville" type="text" class="fld-field" required="required" />
-                    </div>
-                </div>
-                <div class="form-line">
-                    <div class="form-label">
-                        <label for="id-fld-cp">Code postal : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-cp" name="fld-cp" type="text" class="fld-field" required="required" />
-                    </div>
-                    <div class="form-label">
-                        <label for="id-fld-tel">Teléphone : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-tel" name="fld-tel" type="text" class="fld-field" required="required" />
-                    </div>
-                </div>
-				<div class="form-line">
-                    <div class="form-label">
-                        <label for="id-fld-mdp">Mot de passe : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-mdp" name="fld-mdp" type="password" class="fld-field" required="required" />
-                    </div>
-                    <div class="form-label">
-                        <label for="id-fld-mdp2">Confirmation : </label>
-                    </div>
-                    <div class="form-field">
-                        <input id="id-fld-mdp2" name="fld-mdp2" type="password" class="fld-field" required="required" />
-                    </div>
-                </div>
-                 <button type="submit" name="button" class="btn btn-primary" value ="inser">Créer un compte</button>
-                 <a href="${pageContext.request.contextPath}/accueil" class="btn btn-primary">Annuler</a>
-    		</form>
-	</div>
+                     
+ 
+    		
+    		<form name="form_compte" action="" method="post">
+    		
+    		<div class="container rounded bg-white mt-5 mb-5">
+    		<div class="row">
+        		<div class="col-md-3 border-right">
+            		<div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+            		 width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+            		<span class="font-weight-bold">${profil.pseudo}</span><span class="text-black-50">${profil.email}</span>
+            		
+            		</div>
+            		
+        		</div>
+        		
+        		<div class="col-md-5 border-right">
+        		<div class="p-3 py-5">
+                		<div class="d-flex justify-content-between align-items-center mb-3">
+                    	<h4 class="text-right">Création de compte :</h4>
+                	</div>
+                	
+            		<div class="p-3 py-5">
+                		<div class="d-flex justify-content-between align-items-center mb-3">
+                    	<h4 class="text-right">Mes informations</h4>
+                	</div>
+                	<div class="row mt-2">
+                	
+                		<div class="col-md-12">
+                			<label for="id-fld-name">Nom : </label>
+                        	<input id="id-fld-name" name="fld-name" type="text" class="form-control" required="required" placeholder="Votre nom ?">
+                		</div>
+                		
+                    	<div class="col-md-12">
+							<label for="id-fld-prenom">Prénom : </label>
+                        	<input id="id-fld-prenom" name="fld-prenom" type="text" class="form-control" required="required" placeholder="Votre prenom ?"> 
+						</div>
+							
+                    	<div class="col-md-12">
+							<label for="id-fld-pseudo">Pseudo : </label>
+                        <input id="id-fld-pseudo" name="fld-pseudo" type="text" class="form-control" required="required">			
+                		</div>              
+                	
+                    	<div class="col-md-12">
+							<label for="id-fld-email">Email : </label>
+                        <input id="id-fld-email" name="fld-email" type="text" class="form-control" required="required" placeholder="john.doe@gmail.com">
+						</div>
+							
+                    	<div class="col-md-12">
+							<label for="id-fld-adresse">Adresse : </label>
+                        <input id="id-fld-adresse" name="fld-adresse" type="text" class="form-control" required="required">
+						</div>
+						
+                    	<div class="col-md-12">
+							<label for="id-fld-ville">Ville : </label>
+                        <input id="id-fld-ville" name="fld-ville" type="text" class="form-control" required="required">
+						</div>
+							
+                    	<div class="col-md-12">
+							<label for="id-fld-cp">Code postal : </label>
+                        <input id="id-fld-cp" name="fld-cp" type="text" class="form-control" required="required">
+						</div>
+						
+                    	<div class="col-md-12">
+							<label for="id-fld-tel">Teléphone : </label>
+                        <input id="id-fld-tel" name="fld-tel" type="text" class="form-control" required="required">
+						</div>
+						
+						<div class="col-md-12">
+							<label for="id-fld-mdp">Mot de passe : </label>
+                        	<input id="id-fld-mdp" name="fld-mdp" type="password" class="form-control" required="required">
+						</div>
+						
+						<div class="col-md-12">
+							<label for="id-fld-mdp2">Confirmation : </label>
+                        	<input id="id-fld-mdp2" name="fld-mdp2" type="password" class="form-control" required="required">
+						</div>				
+                	        	
+                			<div class="mt-5 text-center">
+                	
+                				<button type="submit" name="button" class="btn btn-primary" value ="inser">Créer un compte</button>
+                 				<a href="${pageContext.request.contextPath}/accueil" class="btn btn-primary">Annuler</a>
+
+                	 		</div>
+                	 
+                		
+                 	
+            		</div>
+            		
+        		</div>
+        		
+        </div>	
+        	
+    		</div>
+    		
+		</div>
+	</form>	
+  </div>
 </body>
 </html>
