@@ -34,7 +34,7 @@
                     
                         <div class="form-group">
                         	<label for="nom_article">Nom de votre objet : </label>
-                            <input type="text" id="id_nom_article" name="nom_article" class="form-control" value="" />
+                            <input type="text" id="id_nom_article" name="nom_article" class="form-control" required="required" />
                         </div>
                         
                         <div class="form-group">
@@ -53,7 +53,7 @@
                         
                         <div class="form-group">
                         	<label for="prix_ini">Mise a prix : </label>
-                            <input type="number" id="id_prix_ini" name="prix_ini" class="form-control" step="10" required="required">
+                            <input type="number" id="id_prix_ini" name="prix_ini" class="form-control" required="required">
                         </div>
                         
                         <div class="form-group">

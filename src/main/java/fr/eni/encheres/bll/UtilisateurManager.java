@@ -13,7 +13,7 @@ public class UtilisateurManager {
 	private static final String CHECK_NUMBER = "^\\d{10}$";
 	private static final String CHECK_CP = "^\\d{5}$";
 	private static final String CHECK_ADRESSE = "/^[a-zA-Z0-9\s,.'-]{3,}$/";
-	private static final String REGEX_MDP = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+	private static final String REGEX_MDP = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
 	private static UtilisateurManager instance;
 	private UtilisateurDAO daoUser;
 
@@ -156,7 +156,7 @@ public class UtilisateurManager {
 	}
 
 	private void checkMdp(String mdp, BusinessException be) throws BusinessException {
-		if (!mdp.matches(STRING_VERIFICATION) || mdp.length() > 30) {
+		if (!mdp.matches(REGEX_MDP) || mdp.length() > 30) {
 			be.ajouterErreur(CodesResultatBLL.MDP_KO);
 		}
 	}

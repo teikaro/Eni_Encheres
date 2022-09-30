@@ -42,9 +42,7 @@
 				<p>Date de fin de l'enchère : ${article.date_fin_encheres}</p>
 				<p>Adresse de retrait : ${article.lieuRetrait.rue} ${article.lieuRetrait.code_postal} ${article.lieuRetrait.ville}</p>
 				<p>Vendeur : ${article.user.pseudo}</p>
-				<form action="" method="post">
-					<p>Enchérir :   
-				</form>
+				
 			</div>
 		</div>
 	</main>
