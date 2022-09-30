@@ -6,10 +6,16 @@ import fr.eni.encheres.bo.Retrait;
 import fr.eni.encheres.dal.ArticleDAO;
 import fr.eni.encheres.dal.DAOFactory;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.List;
 
 public class ArticleManager {
+	
+	private static final String STRING_VERIFICATION = "^[^'-]+$";
+	private static final String CHECK_CP = "^\\d{5}$";
+	private static final String CHECK_NUMBER = "^\\d{1,15}$";
 	
 	private static ArticleManager instance;
 
@@ -66,10 +72,68 @@ public class ArticleManager {
 	public void checkInsertAricle(Articles article, Retrait retrait) throws BusinessException{
 		BusinessException be = new BusinessException();
 		
+		checkNomArticle(article.getNom_article(), be);
+		checkDescription(article.getDescription(), be);
+		checkPrix(article.getPrix_initial(), be);
+		checkDateStart(article.getDate_debut_encheres(), be);
+		checkDateEnd(article.getDate_fin_encheres(),article.getDate_debut_encheres(), be);
+		checkRue(retrait.getRue(), be);
+		checkVille(retrait.getVille(), be);
+		checkCP(retrait.getCode_postal(), be);
+		
 		if (!be.hasErreurs()) {
 			articleDAO.insertArticle(article, retrait);
 		} else {
 			throw be;
+		}
+	}
+
+	private void checkRue(String rue, BusinessException be) throws BusinessException {
+		if (rue.length() > 30) {
+			be.ajouterErreur(CodesResultatBLL.RUE_KO);
+		}
+	}
+
+	private void checkCP(String cp, BusinessException be) throws BusinessException {
+		if (!cp.matches(CHECK_CP) || cp.length() > 10) {
+			be.ajouterErreur(CodesResultatBLL.CP_KO);
+		}
+	}
+
+	private void checkVille(String ville, BusinessException be) throws BusinessException {
+		if (!ville.matches(STRING_VERIFICATION) || ville.length() > 30) {
+			be.ajouterErreur(CodesResultatBLL.VILLE_KO);
+		}
+	}
+
+	private void checkDateEnd(Date date_fin_encheres, Date date_debut_encheres, BusinessException be) {
+		if(date_debut_encheres.after(date_fin_encheres)) {
+			be.ajouterErreur(CodesResultatBLL.DATE_FIN_KO);
+		}
+	}
+
+	private void checkDateStart(Date date_debut_encheres, BusinessException be) {
+		java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		if(date_debut_encheres.before(date)) {
+			be.ajouterErreur(CodesResultatBLL.DATE_DEBUT_KO);
+		}
+	}
+
+	private void checkPrix(Integer prix_initial, BusinessException be) {
+		if (!String.valueOf(prix_initial).matches(CHECK_NUMBER) || String.valueOf(prix_initial).length() > 30) {
+			be.ajouterErreur(CodesResultatBLL.PRIX_KO);
+		}
+	}
+
+	private void checkDescription(String description, BusinessException be) {
+		if (!description.matches(STRING_VERIFICATION) || description.length() > 300) {
+			be.ajouterErreur(CodesResultatBLL.DESC_KO);
+		}
+	}
+
+	private void checkNomArticle(String nom, BusinessException be) {
+		if (!nom.matches(STRING_VERIFICATION) || nom.length() > 30) {
+			be.ajouterErreur(CodesResultatBLL.NOM_KO);
 		}
 	}
 

@@ -31,17 +31,25 @@ public abstract class CodesResultatBLL {
 	
 	public static final int MDP_KO = 20012;
 
-	public static final int REGLE_ARTICLE_NOM_ERREUR = 0;
+	public static final int REGLE_ARTICLE_NOM_ERREUR = 20013;
 
-	public static final int REGLE_ARTICLE_DESCRIPTION_ERREUR = 0;
+	public static final int REGLE_ARTICLE_DESCRIPTION_ERREUR = 20014;
 
-	public static final int REGLE_ARTICLE_DATEDEBUTENCHERE_ERREUR = 0;
+	public static final int REGLE_ARTICLE_DATEDEBUTENCHERE_ERREUR = 20015;
 
-	public static final int REGLE_ARTICLE_DATEFINENCHERE_ERREUR = 0;
+	public static final int REGLE_ARTICLE_DATEFINENCHERE_ERREUR = 20016;
 
-	public static final int REGLE_ARTICLE_MISEAPRIX_ERREUR = 0;
+	public static final int REGLE_ARTICLE_MISEAPRIX_ERREUR = 20017;
 
-	public static final int REGLE_ARTICLE_PRIXVENTE_ERREUR = 0;
+	public static final int REGLE_ARTICLE_PRIXVENTE_ERREUR = 20018;
+
+	public static final int DESC_KO = 20019;
+
+	public static final int DATE_DEBUT_KO = 20020;
+
+	public static final int DATE_FIN_KO = 20021;
+
+	public static final int PRIX_KO = 20022;
 
 	
 }
