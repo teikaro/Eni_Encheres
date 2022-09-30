@@ -25,26 +25,76 @@
 			</ul>
 		</div>
 	</c:if>
-	<main>
-		<div class="container">
-			<h1>Détail vente</h1>
-			
-			<!--  <div id="image">
-				<img alt="Image Article" src="">
-			</div>-->
-			
-			<div id="detail">
-				<p><!--Nom de l'article  --> ${article.nom_article}</p>
-				<p>Description :  ${article.description}</p>
-				<p>Catégorie : ${article.categorieArticle.libelle}</p>
-				<p>Meilleure offre : ${article.prix_vente}</p>
-				<p>Prix initial : ${article.prix_initial}</p>
-				<p>Date de fin de l'enchère : ${article.date_fin_encheres}</p>
-				<p>Adresse de retrait : ${article.lieuRetrait.rue} ${article.lieuRetrait.code_postal} ${article.lieuRetrait.ville}</p>
-				<p>Vendeur : ${article.user.pseudo}</p>
-				
-			</div>
-		</div>
-	</main>
+	
+	<div class="container py-5">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col">
+      <div class="card my-4 shadow-3">
+        <div class="row g-0">
+          <div class="col-xl-6 d-xl-block bg-image">
+            <img src="https://mdbcdn.b-cdn.net/img/Others/extended-example/delivery.webp" alt="Sample photo"
+              class="img-fluid">
+          </div>
+          <div class="col-xl-6">
+            <div class="card-body p-md-5 text-black">
+              <h3 class="mb-4 text-uppercase">Détail de l'objet :</h3>
+              
+               
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1m">Nom :</label>
+                    <input type="text" readonly="readonly" id="form3Example1m" class="form-control form-control-lg" placeholder="${article.nom_article}">
+                  </div>  
+                
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1m">Description :</label>
+                    <textarea type="text" readonly="readonly" id="form3Example1m" class="form-control form-control-lg" placeholder="${article.description}"></textarea>
+                  </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Catégorie :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.categorieArticle.libelle}">
+              </div>
+
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Meilleure offre :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.prix_vente}">
+              </div>
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Prix initial :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.prix_initial}">
+              </div>
+              
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Date de fin de l'enchère :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.date_fin_encheres}">
+              </div>
+              
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Adresse de retrait :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.lieuRetrait.rue} ${article.lieuRetrait.code_postal} ${article.lieuRetrait.ville}">
+              </div>
+              
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example1m">Vendeur :</label>
+                <input type="text" readonly="readonly" class="form-control form-control-lg" placeholder="${article.user.pseudo}">
+              </div>
+
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
 </body>
+
 </html>
