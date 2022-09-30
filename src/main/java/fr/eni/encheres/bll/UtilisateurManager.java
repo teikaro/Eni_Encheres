@@ -12,7 +12,7 @@ public class UtilisateurManager {
 	private static final String STRING_PSEUDO = "^[^\\s]+$";
 	private static final String CHECK_NUMBER = "^\\d{10}$";
 	private static final String CHECK_CP = "^\\d{5}$";
-	private static final String CHECK_ADRESSE = "/^[a-zA-Z0-9\s,.'-]{3,}$/";
+	//private static final String CHECK_ADRESSE = "/^[a-zA-Z0-9\s,.'-]{3,}$/";
 	private static final String REGEX_MDP = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
 	private static UtilisateurManager instance;
 	private UtilisateurDAO daoUser;

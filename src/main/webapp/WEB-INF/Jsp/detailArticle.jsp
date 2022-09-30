@@ -29,10 +29,10 @@
 		<div class="container">
 			<h1>Détail vente</h1>
 			
-			<div id="image">
+			<!--  <div id="image">
 				<img alt="Image Article" src="">
-				
-			</div>
+			</div>-->
+			
 			<div id="detail">
 				<p><!--Nom de l'article  --> ${article.nom_article}</p>
 				<p>Description :  ${article.description}</p>
